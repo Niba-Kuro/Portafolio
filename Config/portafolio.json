@@ -1,9 +1,8 @@
 {
-    "cv"        :{
-        "url"   : "https://docs.google.com/gview?url=https://dochub.com/nibachavez291/jo3xELpR3Q6QyMLVJBa7nr/cv-nibaldo-chavez-pdf.pdf?dt=9koaKQycmXzJUxAR1iSB&embedded=true",
-        "link"  : "https://download1585.mediafire.com/15xmopqw8zgg/tu3wwmlaa1q7la6/CV_Nibaldo_Chavez.pdf"
+    "cv"            :{
+        "url"       : "https://docs.google.com/gview?url=https://dochub.com/nibachavez291/jo3xELpR3Q6QyMLVJBa7nr/cv-nibaldo-chavez-pdf.pdf?dt=9koaKQycmXzJUxAR1iSB&embedded=true"
     },
-    "habilidad" :[
+    "habilidad"     :[
         {
             "icon"      : "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"32\" height=\"32\" fill=\"currentColor\" class=\"bi bi-filetype-html m-3\" viewBox=\"0 0 16 16\"><path fill-rule=\"evenodd\" d=\"M14 4.5V11h-1V4.5h-2A1.5 1.5 0 0 1 9.5 3V1H4a1 1 0 0 0-1 1v9H2V2a2 2 0 0 1 2-2h5.5L14 4.5Zm-9.736 7.35v3.999h-.791v-1.714H1.79v1.714H1V11.85h.791v1.626h1.682V11.85h.79Zm2.251.662v3.337h-.794v-3.337H4.588v-.662h3.064v.662H6.515Zm2.176 3.337v-2.66h.038l.952 2.159h.516l.946-2.16h.038v2.661h.715V11.85h-.8l-1.14 2.596H9.93L8.79 11.85h-.805v3.999h.706Zm4.71-.674h1.696v.674H12.61V11.85h.79v3.325Z\"/></svg",
             "nombre"    : "html5",
@@ -78,9 +77,33 @@
             "html"      : "<div class=\"col-xs-1 col-sm-1 col-md-1 col-lg-1 p-2\"><p class=\"text-uppercase\"><img src=\"https://i.postimg.cc/Vvzr8NQs/icons8-vb-50.png\" width=\"48px\" style=\"margin-bottom: 8px !important;\"><br>vb</p> </div>"
         }
     ],
-    "proyecto"  :[
+    "experiencia"   :[
         {
-            "nombre"    : "Crud manga"
+            "empresa"       : "Contaline S.A",
+            "nombreCargo"   : "Practica",
+            "comienzo"      : "2021 agosto",
+            "finalizacion"  : "2021 octubre",
+            "descripcion"   : "Implementación de nuevos funcionalidades y desarrollo de aprendisaje en el sistema"
+        },{
+            "empresa"       : "Contaline S.A",
+            "nombreCargo"   : "Analista programador",
+            "comienzo"      : "2021 octubre",
+            "finalizacion"  : "2022 marzo",
+            "descripcion"   : "Implementación de nuevos modulos, API`s y desarrollo de aprendisaje en el sistema"
+        }
+    ],
+    "proyecto"      :[
+        {
+            "idProyecto"        : 1,
+            "nombre"            : "Crud manga",
+            "descripcionDet"    : "",
+            "descripcionVista"  : "Blibioteca de manga, dondes podrás guardar mangas y visulizar su contenido",
+            "tipoApp"           : "Desktop App",
+            "imagenes"          : [
+                {
+                    "url"       : "https://i.postimg.cc/zDtrFLDx/crud-Anime-1.png"
+                }
+            ]
         }
     ]
 }

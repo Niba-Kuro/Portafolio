@@ -8,6 +8,39 @@ let popoverCorreo   = new bootstrap.Popover(txtCorreo);
 let popoverAsunto   = new bootstrap.Popover(txtAsunto);
 let popoverMensaje  = new bootstrap.Popover(txtMensaje);
 
+// INICIO
+$(document).ready(function(){
+        
+    // $.getJSON("https://raw.githubusercontent.com/Niba-Kuro/Portafolio/master/Config/portafolio.json", function(data) {
+    $.getJSON("../Config/portafolio.json", function(data) {
+        
+        let contenedorHabilidad     = $("#contenedorHabilidad");
+        let contenedorExperiencia   = $("#contenedorExperiencia");
+
+        $("#fmCv").attr('src', data["cv"]["url"]);
+
+        for(let i = 0; i < data["habilidad"].length; i++){
+            contenedorHabilidad.append(data["habilidad"][i]["html"]);
+        }
+
+        for(let i = 0; i < data["habilidad"].length; i++){
+            // contenedorExperiencia.find("div[role='button']")
+        }
+
+        for(let i = 0; i < data["proyecto"].length; i++){
+            $.modeloCard({
+                idProyecto        : data["proyecto"][i]["idProyecto"],
+                nombre            : data["proyecto"][i]["nombre"],
+                descripcionVista  : data["proyecto"][i]["descripcionVista"],
+                tipoApp           : data["proyecto"][i]["tipoApp"],
+                imagen            : data["proyecto"][i]["imagenes"][0]["url"]
+            });
+        }    
+        
+
+    });
+});
+
 // EVENTOS
 txtCorreo.on("input", function(){
     $(this).removeClass("border-danger");
@@ -86,20 +119,6 @@ $("form").on("submit", function(e){
             $("#txtMdMensaje").text("Su correo no se ha podido enviar");
             modalMensaje.show();
         });
-
-    }
-
-});
-
-$.getJSON("../Config/portafolio.json", function(data) {
-    
-    let contenedorHabilidad = $("#contenedorHabilidad");
-    
-    $("#fmCv").attr('src', data["cv"]["url"]);
-
-    for(let i = 0; i < data["habilidad"].length; i++){
-
-        contenedorHabilidad.append(data["habilidad"][i]["html"]);
 
     }
 

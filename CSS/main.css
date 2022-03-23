@@ -78,6 +78,25 @@ body{
     height: 50vh;
 }
 
-.h-pdf{
-    height: 100vh;
+.pdf iframe{
+    height: 100%;
+    width: 75%;
+}
+
+@media (max-height: 1200px) {
+    .pdf{
+        height: 400px;
+    }   
+}
+
+@media (max-height: 1300px) {
+    .pdf{
+        height: 500px;
+    }   
+}
+
+@media (max-height: 1900px) {
+    .pdf{
+        height: 1000px;
+    }   
 }
