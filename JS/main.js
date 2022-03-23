@@ -11,7 +11,7 @@ let popoverMensaje  = new bootstrap.Popover(txtMensaje);
 // INICIO
 $(document).ready(function(){
         
-    $.getJSON("https://raw.githubusercontent.com/Niba-Kuro/Configuraciones/master/portafolio.json", function(data) {
+    $.getJSON("https://raw.githubusercontent.com/Niba-Kuro/Configuraciones/master/ConfigPortafolio/portafolio.json", function(data) {
     // $.getJSON("../Config/portafolio.json", function(data) {
         
         let contenedorHabilidad     = $("#contenedorHabilidad");
