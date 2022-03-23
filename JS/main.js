@@ -9,6 +9,36 @@ let popoverAsunto   = new bootstrap.Popover(txtAsunto);
 let popoverMensaje  = new bootstrap.Popover(txtMensaje);
 
 // EVENTOS
+txtCorreo.on("input", function(){
+    $(this).removeClass("border-danger");
+    if($(this).val().trim() == ""){
+        popoverCorreo.show();
+        $(this).addClass("border-danger");
+    }else{
+        popoverCorreo.hide();
+    }
+});
+
+txtAsunto.on("input", function(){
+    $(this).removeClass("border-danger");
+    if($(this).val().trim() == ""){
+        popoverAsunto.show();
+        $(this).addClass("border-danger");
+    }else{
+        popoverAsunto.hide();
+    }
+});
+
+txtMensaje.on("input", function(){
+    $(this).removeClass("border-danger");
+    if($(this).val().trim() == ""){
+        popoverMensaje.show();
+        $(this).addClass("border-danger");
+    }else{
+        popoverMensaje.hide();
+    }
+});
+
 $("form").on("submit", function(e){
 
     e.preventDefault();
@@ -18,17 +48,7 @@ $("form").on("submit", function(e){
     if(txtCorreo.val().trim() == ""){
         aux = false
         popoverCorreo.show();
-        txtCorreo.off("input");
         txtCorreo.addClass("border-danger");
-        txtCorreo.on("input", function(){
-            $(this).removeClass("border-danger");
-            if($(this).val().trim() == ""){
-                popoverCorreo.show();
-                $(this).addClass("border-danger");
-            }else{
-                popoverCorreo.hide();
-            }
-        });
     }else{
         popoverCorreo.hide();
     }
@@ -37,16 +57,6 @@ $("form").on("submit", function(e){
         aux = false
         popoverAsunto.show();
         txtAsunto.addClass("border-danger");
-        txtAsunto.off("input");
-        txtAsunto.on("input", function(){
-            $(this).removeClass("border-danger");
-            if($(this).val().trim() == ""){
-                popoverAsunto.show();
-                $(this).addClass("border-danger");
-            }else{
-                popoverAsunto.hide();
-            }
-        });
     }else{
         popoverAsunto.hide();
     }
@@ -55,16 +65,6 @@ $("form").on("submit", function(e){
         aux = false
         popoverMensaje.show();
         txtMensaje.addClass("border-danger");
-        txtMensaje.off("input");
-        txtMensaje.on("input", function(){
-            $(this).removeClass("border-danger");
-            if($(this).val().trim() == ""){
-                popoverMensaje.show();
-                $(this).addClass("border-danger");
-            }else{
-                popoverMensaje.hide();
-            }
-        });
     }else{
         popoverMensaje.hide();
     }
@@ -89,9 +89,18 @@ $("form").on("submit", function(e){
 
     }
 
-
 });
 
-// $.getJSON("https://github.com/Niba-Kuro/AdminPortafolio/blob/master/main.json", function(data) {
-//     console.log("");
-// });
+$.getJSON("../Config/portafolio.json", function(data) {
+    
+    let contenedorHabilidad = $("#contenedorHabilidad");
+    
+    $("#fmCv").attr('src', data["cv"]["url"]);
+
+    for(let i = 0; i < data["habilidad"].length; i++){
+
+        contenedorHabilidad.append(data["habilidad"][i]["html"]);
+
+    }
+
+});
