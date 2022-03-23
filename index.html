@@ -20,7 +20,7 @@
   </div>
 
   <!-- INICIO -->
-  <div class="container-fluid vh-100">
+  <div class="container-fluid vh-100 user-select-none">
     <div class="row justify-content-md-center">
       <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 text-center p-3 vh-100">  
         <h1 class="titulo-presentacion vh-40 lnh-70">Nibaldo Chavez</h1>
@@ -30,7 +30,7 @@
     </div>
   </div>
 
-  <div class="container-fluid background">
+  <div class="container-fluid background user-select-none">
     <div class="row justify-content-md-center">
       <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 text-center p-3">
         <h1 class="p-5">Mi CV</h1>
@@ -67,7 +67,7 @@
   </div>
   
   <!-- PROYECTO -->
-  <div class="container-fluid background">
+  <div class="container-fluid background user-select-none">
     <div class="row justify-content-md-center">
       <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 text-center" style="background-color: rgba(255, 255, 255, 0);">
         <hr class="my-4">
@@ -93,14 +93,14 @@
     <div class="row justify-content-md-center">
       <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 pt-5 mt-2 text-center">          
         <p class="p-3 text-uppercase fs-4 user-select-all" role="button">
-          <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-envelope-fill m-3 mt-2" viewBox="0 0 16 16">
+          <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-envelope-fill m-3 mt-2 user-select-none" viewBox="0 0 16 16">
             <path d="M.05 3.555A2 2 0 0 1 2 2h12a2 2 0 0 1 1.95 1.555L8 8.414.05 3.555ZM0 4.697v7.104l5.803-3.558L0 4.697ZM6.761 8.83l-6.57 4.027A2 2 0 0 0 2 14h12a2 2 0 0 0 1.808-1.144l-6.57-4.027L8 9.586l-1.239-.757Zm3.436-.586L16 11.801V4.697l-5.803 3.546Z"/>
           </svg>
           Nibaldochavezp@gmail.com
         </p>
         
         <p class="p-3 text-uppercase fs-4 user-select-all" role="button">
-          <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-telephone-fill m-3 mt-2" viewBox="0 0 16 16">
+          <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-telephone-fill m-3 mt-2 user-select-none" viewBox="0 0 16 16">
             <path fill-rule="evenodd" d="M1.885.511a1.745 1.745 0 0 1 2.61.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.678.678 0 0 0 .178.643l2.457 2.457a.678.678 0 0 0 .644.178l2.189-.547a1.745 1.745 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.634 18.634 0 0 1-7.01-4.42 18.634 18.634 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877L1.885.511z"/>
           </svg>
           +569 7250 1753
@@ -109,20 +109,20 @@
       <div class="col-xs-12 col-sm-12 col-md-5 col-lg-5 text-center p-5">
         <form>
           <div class="mb-3 p-3">
-            <label for="txtCorreo" class="form-label">Correo electronico</label>
+            <label for="txtCorreo" class="form-label user-select-none">Correo electronico</label>
             <div class="input-group mb-3">
               <input type="email" id="txtCorreo" name="txtCorreo" class="form-control" placeholder="Ingrese su correo electronico" aria-label="ingrese su correo electronico" aria-describedby="basic-addon1" data-bs-container="body" data-bs-toggle="popover" data-bs-placement="left" data-bs-content="Correo no ingresado">
             </div>
           </div>
           <div class="mb-3 p-3">
-            <label for="txtAsunto" class="form-label">Asunto</label>
+            <label for="txtAsunto" class="form-label user-select-none">Asunto</label>
             <input type="text" class="form-control" id="txtAsunto" name="txtAsunto" placeholder="Ingrese su asunto" aria-describedby="basic-addon1" data-bs-container="body" data-bs-toggle="popover" data-bs-placement="left" data-bs-content="Asunto no ingresado">
           </div>
           <div class="mb-3 p-3">
-            <label for="txtMensaje" class="form-label">Mensaje</label>
+            <label for="txtMensaje" class="form-label user-select-none">Mensaje</label>
             <textarea class="form-control" for="txtMensaje" id="txtMensaje" name="txtMensaje" placeholder="Ingrese su Mensaje" aria-describedby="basic-addon1" data-bs-container="body" data-bs-toggle="popover" data-bs-placement="left" data-bs-content="Mensaje no ingresado"></textarea>
           </div>
-          <button type="submit" id="btnEnviarCorreo" class="btn btn-primary m-5">Enviar</button>
+          <button type="submit" id="btnEnviarCorreo" class="btn btn-primary m-5 user-select-none">Enviar</button>
         </form>
       </div>     
 
@@ -131,7 +131,7 @@
   </div>
 
   <!-- Modal -->
-  <div class="modal fade" tabindex="-1" id="mdMensaje" aria-hidden="true">
+  <div class="modal fade user-select-none" tabindex="-1" id="mdMensaje" aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
@@ -146,7 +146,7 @@
   </div>
 
   <!-- Modal -->
-  <div class="modal fade" id="mdLoading" tabindex="-1" aria-hidden="true">
+  <div class="modal fade user-select-none" id="mdLoading" tabindex="-1" aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-body text-center">
@@ -161,7 +161,7 @@
     </div>
   </div>
 
-  <footer class="text-center text-white">
+  <footer class="text-center text-white user-select-none">
     <div class="fondo-oscuro" style="height: 175px;">
     </div>
     <div class="container p-4">
