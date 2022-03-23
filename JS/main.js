@@ -11,8 +11,16 @@ let popoverMensaje  = new bootstrap.Popover(txtMensaje);
 // INICIO
 $(document).ready(function(){
         
-    $.getJSON("https://raw.githubusercontent.com/Niba-Kuro/Configuraciones/master/ConfigPortafolio/portafolio.json", function(data) {
-    // $.getJSON("../Config/portafolio.json", function(data) {
+    let contenedorPdf = $(".pdf")
+    let auxPx = 0;
+    let ua = navigator.userAgent.toLowerCase(); 
+    let movil = ua.indexOf("mobile") > -1;
+
+    if(movil){
+        contenedorPdf.css("height", "500px");
+    }
+
+    $.getJSON("https://raw.githubusercontent.com/Niba-Kuro/Configuraciones/master/ConfigPortafolio/portafolio.json", function(data) {    
         
         let contenedorHabilidad     = $("#contenedorHabilidad");
         let contenedorExperiencia   = $("#contenedorExperiencia");
@@ -21,10 +29,6 @@ $(document).ready(function(){
 
         for(let i = 0; i < data["habilidad"].length; i++){
             contenedorHabilidad.append(data["habilidad"][i]["html"]);
-        }
-
-        for(let i = 0; i < data["habilidad"].length; i++){
-            // contenedorExperiencia.find("div[role='button']")
         }
 
         for(let i = 0; i < data["proyecto"].length; i++){
@@ -36,7 +40,21 @@ $(document).ready(function(){
                 imagen            : data["proyecto"][i]["imagenes"][0]["url"]
             });
         }    
+
+        for(let i = 0; i < data["experiencia"].length; i++){
+            $.modeloExperiencia({
+                empresa       : data["experiencia"][i]["empresa"],
+                nombreCargo   : data["experiencia"][i]["nombreCargo"],
+                comienzo      : data["experiencia"][i]["comienzo"],
+                finalizacion  : data["experiencia"][i]["finalizacion"],
+                descripcion   : data["experiencia"][i]["descripcion"]
+            });
+        }    
         
+        let tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
+        let tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+            return new bootstrap.Tooltip(tooltipTriggerEl)
+        })
 
     });
 });
