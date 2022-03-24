@@ -86,8 +86,16 @@ $(document).ready(function(){
 
             contenedor.find("#dvTec").html("<p class=\"fs-1\">tecnología</p> " + aux);
             contenedor.find("#btnlink").attr("href", jsonProyecto["linkGithub"]);
-            contenedor.find("#btnDescargar").attr("href", jsonProyecto["descargarLink"]);
-            contenedor.find("#btnDescargar").attr("download", jsonProyecto["nombre"]);
+
+            if(jsonProyecto["descargarLink"] == ""){
+                contenedor.find("#btnDescargar").addClass("disabled");
+                contenedor.find("#btnDescargar").removeAttr("href");
+                contenedor.find("#btnDescargar").removeAttr("download");
+            }else{
+                contenedor.find("#btnDescargar").removeClass("disabled");
+                contenedor.find("#btnDescargar").attr("href", jsonProyecto["descargarLink"]);
+                contenedor.find("#btnDescargar").attr("download", jsonProyecto["nombre"]);
+            }            
 
             mdVisualizar.show();
         });
