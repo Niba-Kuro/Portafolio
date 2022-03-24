@@ -2,8 +2,6 @@
 let txtCorreo       = $("#txtCorreo");
 let txtMensaje      = $("#txtMensaje");
 let txtAsunto       = $("#txtAsunto");
-let imgSlider       = $("#myCarousel");
-let carousel        = new bootstrap.Carousel(imgSlider[0]);
 let modalLoading    = new bootstrap.Modal($("#mdLoading"), {keyboard: false});
 let modalMensaje    = new bootstrap.Modal($("#mdMensaje"), {keyboard: false});
 let mdVisualizar    = new bootstrap.Modal($("#mdVisualizar"), {keyboard: false});
@@ -61,8 +59,8 @@ $(document).ready(function(){
         $("[data-idp]").on("click", function(){
 
             let jsonProyecto = Object.values(data)[3].find(proyecto => proyecto.idProyecto == parseInt($(this).data("idp")));
-            let contenedor = $("#mdVisualizar");
-            let aux = "";
+            let contenedor  = $("#mdVisualizar");
+            let aux         = "";            
 
             contenedor.find("h5").html(jsonProyecto["nombre"]);
             contenedor.find("#pDescripcion").html(jsonProyecto["descripcionDet"]);
@@ -77,7 +75,7 @@ $(document).ready(function(){
                 aux += '</div>';
             }
 
-            contenedor.find(".carousel-inner").append(aux);
+            contenedor.find(".carousel-inner").html(aux);
 
             aux = "";
 
@@ -86,7 +84,7 @@ $(document).ready(function(){
                 aux += '<span class="badge rounded-pill m-1 ' + auxJson["class"] + '">' + auxJson["nombre"] + '</span>';
             }
 
-            contenedor.find("#dvTec").append(aux);
+            contenedor.find("#dvTec").html("<p class=\"fs-1\">tecnología</p> " + aux);
             contenedor.find("#btnlink").attr("href", jsonProyecto["linkGithub"]);
             contenedor.find("#btnDescargar").attr("href", jsonProyecto["descargarLink"]);
             contenedor.find("#btnDescargar").attr("download", jsonProyecto["nombre"]);
