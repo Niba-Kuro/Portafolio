@@ -2,8 +2,11 @@
 let txtCorreo       = $("#txtCorreo");
 let txtMensaje      = $("#txtMensaje");
 let txtAsunto       = $("#txtAsunto");
+let imgSlider       = $("#myCarousel");
+let carousel        = new bootstrap.Carousel(imgSlider[0]);
 let modalLoading    = new bootstrap.Modal($("#mdLoading"), {keyboard: false});
 let modalMensaje    = new bootstrap.Modal($("#mdMensaje"), {keyboard: false});
+let mdVisualizar    = new bootstrap.Modal($("#mdVisualizar"), {keyboard: false});
 let popoverCorreo   = new bootstrap.Popover(txtCorreo);
 let popoverAsunto   = new bootstrap.Popover(txtAsunto);
 let popoverMensaje  = new bootstrap.Popover(txtMensaje);
@@ -22,8 +25,7 @@ $(document).ready(function(){
 
     $.getJSON("https://raw.githubusercontent.com/Niba-Kuro/Configuraciones/master/ConfigPortafolio/portafolio.json", function(data) {    
         
-        let contenedorHabilidad     = $("#contenedorHabilidad");
-        let contenedorExperiencia   = $("#contenedorExperiencia");
+        let contenedorHabilidad     = $("#contenedorHabilidad");        
 
         $("#fmCv").attr('src', data["cv"]["url"]);
 
@@ -49,18 +51,54 @@ $(document).ready(function(){
                 finalizacion  : data["experiencia"][i]["finalizacion"],
                 descripcion   : data["experiencia"][i]["descripcion"]
             });
-        }    
+        }
         
-        let tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
+        let tooltipTriggerList = [].slice.call($("[data-bs-toggle=\"tooltip\"]"));
         let tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
             return new bootstrap.Tooltip(tooltipTriggerEl)
-        })
+        });
+        
+        $("[data-idp]").on("click", function(){
+
+            let jsonProyecto = Object.values(data)[3].find(proyecto => proyecto.idProyecto == parseInt($(this).data("idp")));
+            let contenedor = $("#mdVisualizar");
+            let aux = "";
+
+            contenedor.find("h5").html(jsonProyecto["nombre"]);
+            contenedor.find("#pDescripcion").html(jsonProyecto["descripcionDet"]);
+
+            for(let i = 0; i < jsonProyecto["imagenes"].length; i++){
+                if(i == 0){
+                    aux += '<div class="carousel-item active">';
+                }else{
+                    aux += '<div class="carousel-item">';
+                }
+                aux += '    <img src="' + jsonProyecto["imagenes"][i]["url"] + '" class="d-block w-100">';
+                aux += '</div>';
+            }
+
+            contenedor.find(".carousel-inner").append(aux);
+
+            aux = "";
+
+            for(let i = 0; i < jsonProyecto["tecnologia"].length; i++){
+                let auxJson = jsonProyecto["tecnologia"][i];
+                aux += '<span class="badge rounded-pill m-1 ' + auxJson["class"] + '">' + auxJson["nombre"] + '</span>';
+            }
+
+            contenedor.find("#dvTec").append(aux);
+            contenedor.find("#btnlink").attr("href", jsonProyecto["linkGithub"]);
+            contenedor.find("#btnDescargar").attr("href", jsonProyecto["descargarLink"]);
+            contenedor.find("#btnDescargar").attr("download", jsonProyecto["nombre"]);
+
+            mdVisualizar.show();
+        });
 
     });
 });
 
 // EVENTOS
-txtCorreo.on("input", function(){
+txtCorreo.on("input focusout focusin", function(){
     $(this).removeClass("border-danger");
     if($(this).val().trim() == ""){
         popoverCorreo.show();
@@ -70,7 +108,7 @@ txtCorreo.on("input", function(){
     }
 });
 
-txtAsunto.on("input", function(){
+txtAsunto.on("input focusout", function(){
     $(this).removeClass("border-danger");
     if($(this).val().trim() == ""){
         popoverAsunto.show();
@@ -80,7 +118,7 @@ txtAsunto.on("input", function(){
     }
 });
 
-txtMensaje.on("input", function(){
+txtMensaje.on("input focusout", function(){
     $(this).removeClass("border-danger");
     if($(this).val().trim() == ""){
         popoverMensaje.show();

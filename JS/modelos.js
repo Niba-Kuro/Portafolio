@@ -25,7 +25,7 @@
         modelo += '    <li class="list-group-item">' + opciones.tipoApp + '</li>';
         modelo += '    </ul>';
         modelo += '    <div class="card-body">';
-        modelo += '    <button class="btn btn-primary">ir al proyecto</button>';
+        modelo += '    <button class="btn btn-primary" data-idp="' + opciones.idProyecto + '">ir al proyecto</button>';
         modelo += '    </div>';
         modelo += '</div>';
 
