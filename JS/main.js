@@ -169,7 +169,7 @@ $("form").on("submit", function(e){
         modalLoading.show();
 
         let serviceID = "default_service";
-        let templateID = "template_a8his7p";
+        let templateID = "Portafolio_a8his7p";
         
         emailjs.sendForm(serviceID, templateID, this)
         .then(() => {
